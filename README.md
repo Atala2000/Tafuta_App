@@ -3,13 +3,13 @@ The application is a simple solution meant to connect lost items with their user
 
 ## The application is split into two 
 1. Front-end
-### Technologies
+## Technologies
 1. HTML5 and CSS
 2. Sass and Bootstrap 
 3. jQuery
 
 2. Back-end
-### Technologies
+## Technologies
 1. Python using Django framework for the backend
 
 The front and backend are connected through the use of a REST API
