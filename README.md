@@ -1,31 +1,45 @@
 # TAFUTA APP
-The application is a simple solution meant to connect lost items with their users. It provides an interface where lost items can be reported and give a platform for their owners to connect with them
 
-## The application is split into two 
-1. Front-end
-## Technologies
-1. HTML5 and CSS
-2. Sass and Bootstrap 
-3. jQuery
+**Overview:**
+Tafuta App is a streamlined solution designed to reunite lost items with their owners. It serves as a platform where users can effortlessly report lost items, fostering connections between lost belongings and their rightful owners.
 
-2. Back-end
-## Technologies
-1. Python using Django framework for the backend
+## Components:
 
-The front and backend are connected through the use of a REST API
-## REST API
-1. Django framework defines endpoints that return JSON representation of data stored in a database
-2. jQuery using Ajax makes a GET request to the endpoint and uses the data returned to populate 
+### 1. Front-end
 
-## How to run the application
-1. Clone the repository
-2. Navigate to the root folder
-3. Run the command `python manage.py runserver`
-4. Open the browser and navigate to localhost:8000
-5. The application should be running
+**Technologies:**
+- HTML5 and CSS
+- Sass and Bootstrap 
+- jQuery
 
-## How to use the application
-1. The application has a simple interface that allows users to report lost items
-2. The user is required to fill in the details of the lost item
-3. The user can also view the lost items that have been reported
-4. The user can also view the details of the lost item
+### 2. Back-end
+
+**Technologies:**
+- Python utilizing the Django framework for robust backend functionalities.
+
+**Integration:**
+The seamless connection between the front and back end is achieved through the implementation of a REST API.
+
+## REST API:
+
+1. Django Framework: Establishes well-defined endpoints that return JSON representations of data stored in a secure database.
+2. jQuery using Ajax: Executes GET requests to the defined endpoints, utilizing the retrieved data to populate the user interface dynamically.
+
+## Running the Application:
+
+Follow these steps to run the Tafuta App locally:
+
+1. Clone the repository.
+2. Navigate to the root folder.
+3. Execute the command `python manage.py runserver`.
+4. Open your browser and go to `localhost:8000`.
+5. The application is now up and running.
+
+## How to Use the Application:
+
+1. The user-friendly interface allows users to effortlessly report lost items.
+2. Users are prompted to provide details about the lost item for efficient tracking.
+3. The application provides a convenient overview of all reported lost items.
+4. Detailed information about a specific lost item is easily accessible to users.
+
+Tafuta App simplifies the process of reporting and locating lost items, creating a user-centric experience for both reporting and searching for lost belongings.
