@@ -1,40 +1,26 @@
 #!/usr/bin/env python3
 """Database storage engine"""
 from datetime import datetime
-from dotenv import load_dotenv
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-import os
-
-
-
-load_dotenv()
-
-app = Flask(__name__)
-# Replace placeholders with your actual credentials from environment variables
-app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql://{os.getenv('USER_NAME')}:{os.getenv('USER_PASSWORD')}@localhost/{os.getenv('USER_DB')}"
-
-# Disable track modifications to suppress warning
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-db = SQLAlchemy(app)
+from . import db, app
 
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(64), nullable=False)
-    last_name = db.Column(db.String(128), nullable=False)
-    email = db.Column(
-        db.String(128), nullable=False, unique=True, default="example@example.com"
-    )
-    date_joined = db.Column(db.DateTime, default=datetime.now)
+    first_name = db.Column(db.String(100))
+    last_name = db.Column(db.String(100))
+    email = db.Column(db.String(20))
+    finder_id = db.relationship("Item_found", backref="user", lazy=True)
 
-    def __repr__(self):
-        return f"User {self.email} joined on {self.date_joined}"
 
-class Pets(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), nullable=False)
+class Item_found(db.Model):
+    found_item_id = db.Column(db.Integer, db.ForeignKey("item_lost.lost_item_id"), primary_key=True)
+    owner_id = db.Column(db.Intger, db.ForeignKey("user.id"))
+    date_found = db.Column(db.Date, default=datetime.utcnow)
+    finder_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+
+class Item_lost(db.Model):
+    lost_item_id = db.Column(db.Integer, primary_key=True)
 
 
 if __name__ == "__main__":
