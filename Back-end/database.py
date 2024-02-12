@@ -1,40 +1,33 @@
 #!/usr/bin/env python3
 """Database storage engine"""
 from datetime import datetime
-from dotenv import load_dotenv
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-import os
-
-
-
-load_dotenv()
-
-app = Flask(__name__)
-# Replace placeholders with your actual credentials from environment variables
-app.config["SQLALCHEMY_DATABASE_URI"] = f"mysql://{os.getenv('USER_NAME')}:{os.getenv('USER_PASSWORD')}@localhost/{os.getenv('USER_DB')}"
-
-# Disable track modifications to suppress warning
-app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
-
-db = SQLAlchemy(app)
+from . import db, app
 
 
 class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    first_name = db.Column(db.String(64), nullable=False)
-    last_name = db.Column(db.String(128), nullable=False)
-    email = db.Column(
-        db.String(128), nullable=False, unique=True, default="example@example.com"
-    )
-    date_joined = db.Column(db.DateTime, default=datetime.now)
+    first_name = db.Column(db.String(100))
+    last_name = db.Column(db.String(100))
+    email = db.Column(db.String(20))
 
-    def __repr__(self):
-        return f"User {self.email} joined on {self.date_joined}"
 
-class Pets(db.Model):
+class Item_found(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(64), nullable=False)
+    item_name = db.Column(db.String(100))
+    item_description = db.Column(db.String(100))
+    item_location = db.Column(db.String(100))
+    item_date = db.Column(db.DateTime, default=datetime.now)
+    item_status = db.Column(db.String(100))
+    item_user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    user = db.relationship("User", backref="item_found")
+
+
+class Item_retrieved(db.Model):
+    date_retrieved = db.Column(db.DateTime, default=datetime.now)
+    item_id = db.Column(db.Integer, db.ForeignKey("item_found.id"))
+    owner_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+    finder_id = db.Column(db.Integer, db.ForeignKey("user.id"))
 
 
 if __name__ == "__main__":
