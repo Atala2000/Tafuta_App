@@ -9,18 +9,25 @@ class User(db.Model):
     first_name = db.Column(db.String(100))
     last_name = db.Column(db.String(100))
     email = db.Column(db.String(20))
-    finder_id = db.relationship("Item_found", backref="user", lazy=True)
 
 
 class Item_found(db.Model):
-    found_item_id = db.Column(db.Integer, db.ForeignKey("item_lost.lost_item_id"), primary_key=True)
-    owner_id = db.Column(db.Intger, db.ForeignKey("user.id"))
-    date_found = db.Column(db.Date, default=datetime.utcnow)
+    id = db.Column(db.Integer, primary_key=True)
+    item_name = db.Column(db.String(100))
+    item_description = db.Column(db.String(100))
+    item_location = db.Column(db.String(100))
+    item_date = db.Column(db.DateTime, default=datetime.now)
+    item_status = db.Column(db.String(100))
+    item_user_id = db.Column(db.Integer, db.ForeignKey("user.id"))
+
+    user = db.relationship("User", backref="item_found")
+
+
+class Item_retrieved(db.Model):
+    date_retrieved = db.Column(db.DateTime, default=datetime.now)
+    item_id = db.Column(db.Integer, db.ForeignKey("item_found.id"))
+    owner_id = db.Column(db.Integer, db.ForeignKey("user.id"))
     finder_id = db.Column(db.Integer, db.ForeignKey("user.id"))
-
-
-class Item_lost(db.Model):
-    lost_item_id = db.Column(db.Integer, primary_key=True)
 
 
 if __name__ == "__main__":
