@@ -35,7 +35,7 @@ Provides powerful class-based views for handling HTTP methods (GET, POST, PUT, D
 Authentication classes in DRF allow for flexible and customizable authentication methods, ensuring data security.
 Throttling, pagination, and filtering options in DRF enhance API performance and user experience.
 
-**list of APIs**
+## list of APIs:
 items/ [name='item-list-create']
 items/<int:pk>/ [name='item-retrieve-update-destroy']
 electronics/ [name='electronics-list-create']
@@ -65,9 +65,13 @@ Follow these steps to run the Tafuta App locally:
 
 1. Clone the repository.
 2. Navigate to the root folder.
-3. Execute the command `python manage.py runserver`.
-4. Open your browser and go to `localhost:8000`.
-5. The application is now up and running.
+3. Activate the virtual env
+		source env/bin/activate
+4. Install the requirements
+		pip install -r requirement.txt
+5. Execute the command `python manage.py runserver`.
+6. Open your browser and go to `localhost:8000`.
+7. The application is now up and running.
 
 ## How to Use the Application:
 
