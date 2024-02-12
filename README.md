@@ -35,6 +35,24 @@ Provides powerful class-based views for handling HTTP methods (GET, POST, PUT, D
 Authentication classes in DRF allow for flexible and customizable authentication methods, ensuring data security.
 Throttling, pagination, and filtering options in DRF enhance API performance and user experience.
 
+**list of APIs**
+items/ [name='item-list-create']
+items/<int:pk>/ [name='item-retrieve-update-destroy']
+electronics/ [name='electronics-list-create']
+electronics/<int:pk>/ [name='electronics-retrieve-update-destroy']
+credentials/ [name='credential-list-create']
+credentials/<int:pk>/ [name='credentials-retrieve-update-destroy']
+clothings/ [name='clothing-list-create']
+clothings/<int:pk>/ [name='clothing-retrieve-update-destroy']
+furniture/ [name='furniture-list-create']
+furniture/<int:pk>/ [name='furniture-retrieve-update-destroy']
+stationary/ [name='stationary-list-create']
+stationary/<int:pk>/ [name='stationary-retrieve-update-destroy']
+pets/ [name='pet-list-create']
+pets/<int:pk>/ [name='pets-retrieve-update-destroy']
+sign up/ [name='user-registration']
+login/ [name='user-login']
+
 **jQuery using Ajax**
 Front-end interactions are facilitated through jQuery and Ajax, allowing asynchronous communication with the backend.
 Executes GET requests to the defined API endpoints, retrieving JSON data from the Django backend.
