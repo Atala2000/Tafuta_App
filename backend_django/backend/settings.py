@@ -62,6 +62,12 @@ AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Add this line
+    ],
+}
+
 AUTH_USER_MODEL = 'accounts.Account'
 
 ROOT_URLCONF = 'backend.urls'
