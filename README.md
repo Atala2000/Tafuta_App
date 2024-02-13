@@ -52,6 +52,8 @@ Throttling, pagination, and filtering options in DRF enhance API performance and
 - [`pets/<int:pk>/` [name='pets-retrieve-update-destroy']](#)
 - [`sign up/` [name='user-registration']](#)
 - [`login/` [name='user-login']](#)
+- [`logout/` [name='user-logout']](#)
+
 
 **jQuery using Ajax**
 Front-end interactions are facilitated through jQuery and Ajax, allowing asynchronous communication with the backend.
