@@ -31,10 +31,23 @@ function item_listing() {
             console.log("Sucess")
             data.forEach((item) => {
                 items_column.innerHTML += `
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body">
-                            <h5 class="card-title
+                <div class="card col-md-4 m-2" style="width: 18rem;">
+                    <img class="card-img-top" src="..." alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">${item.title}</h5>
+                        <p class="card-text">${item.body}</p>
+                        <a href="./item-list-detail.html?value=${item.id}" >Go somewhere</a>
+                    </div>
+                </div>
+                `
+            })
+        },
+
+    })
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     index_page();
+    item_listing();
+    
 });
