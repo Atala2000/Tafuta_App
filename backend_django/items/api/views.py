@@ -1,6 +1,6 @@
 from rest_framework import generics
-from ..models import Item, Electronic, Credential, Clothing, Stationary, Furniture, Pet
-from .serializers import ItemSerializer, ElectronicSerializer,ClothingSerializer, CredentialSerializer, StationarySerializer, FurnitureSerializer, PetSerializer
+from ..models import Item, Category
+from .serializers import ItemSerializer, CategorySerializer
 
 class ItemListCreateView(generics.ListCreateAPIView):
     queryset = Item.objects.all()
@@ -15,55 +15,76 @@ class ItemListCreateView(generics.ListCreateAPIView):
 
     #    return queryset
 
-
 class ItemRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
-class ElectronicListCreateView(generics.ListCreateAPIView):
-    queryset = Electronic.objects.all()
-    serializer_class = ElectronicSerializer
+class CategoryListCreateView(generics.ListCreateAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
-class ElectronicRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Electronic.objects.all()
-    serializer_class = ElectronicSerializer
+class CategoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = CategorySerializer
 
-class CredentialListCreateView(generics.ListCreateAPIView):
-    queryset = Credential.objects.all()
-    serializer_class = CredentialSerializer
+class ElectronicsItemListView(generics.ListAPIView):
+    serializer_class = ItemSerializer
 
-class CredentialRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Credential.objects.all()
-    serializer_class = CredentialSerializer
+    def get_queryset(self):
+        electronics_category = Category.objects.get(name='Electronics')
+        return Item.objects.filter(category=electronics_category)
 
-class ClothingListCreateView(generics.ListCreateAPIView):
-    queryset = Clothing.objects.all()
-    serializer_class = ClothingSerializer
+class ClothingItemListView(generics.ListAPIView):
+    serializer_class = ItemSerializer
 
-class ClothingRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Clothing.objects.all()
-    serializer_class = ClothingSerializer
+    def get_queryset(self):
+        clothing_category = Category.objects.get(name='Clothing')
+        return Item.objects.filter(category=clothing_category)
 
-class StationaryListCreateView(generics.ListCreateAPIView):
-    queryset = Stationary.objects.all()
-    serializer_class = StationarySerializer
+# class ElectronicListCreateView(generics.ListCreateAPIView):
+#     queryset = Electronic.objects.all()
+#     serializer_class = ElectronicSerializer
 
-class StationaryRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Stationary.objects.all()
-    serializer_class = StationarySerializer
+# class ElectronicRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Electronic.objects.all()
+#     serializer_class = ElectronicSerializer
 
-class FurnitureListCreateView(generics.ListCreateAPIView):
-    queryset = Furniture.objects.all()
-    serializer_class = FurnitureSerializer
+# class CredentialListCreateView(generics.ListCreateAPIView):
+#     queryset = Credential.objects.all()
+#     serializer_class = CredentialSerializer
 
-class FurnitureRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Furniture.objects.all()
-    serializer_class = FurnitureSerializer
+# class CredentialRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Credential.objects.all()
+#     serializer_class = CredentialSerializer
 
-class PetListCreateView(generics.ListCreateAPIView):
-    queryset = Pet.objects.all()
-    serializer_class = PetSerializer
+# class ClothingListCreateView(generics.ListCreateAPIView):
+#     queryset = Clothing.objects.all()
+#     serializer_class = ClothingSerializer
 
-class PetRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Pet.objects.all()
-    serializer_class = PetSerializer
+# class ClothingRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Clothing.objects.all()
+#     serializer_class = ClothingSerializer
+
+# class StationaryListCreateView(generics.ListCreateAPIView):
+#     queryset = Stationary.objects.all()
+#     serializer_class = StationarySerializer
+
+# class StationaryRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Stationary.objects.all()
+#     serializer_class = StationarySerializer
+
+# class FurnitureListCreateView(generics.ListCreateAPIView):
+#     queryset = Furniture.objects.all()
+#     serializer_class = FurnitureSerializer
+
+# class FurnitureRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Furniture.objects.all()
+#     serializer_class = FurnitureSerializer
+
+# class PetListCreateView(generics.ListCreateAPIView):
+#     queryset = Pet.objects.all()
+#     serializer_class = PetSerializer
+
+# class PetRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
+#     queryset = Pet.objects.all()
+#     serializer_class = PetSerializer
