@@ -1,4 +1,4 @@
-from rest_framework import generics
+from rest_framework import generics, permissions
 from ..models import Item, Category
 from .serializers import ItemSerializer, CategorySerializer
 
@@ -6,14 +6,17 @@ class ItemListCreateView(generics.ListCreateAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
-    #def get_queryset(self):
-    #    queryset = super().get_queryset()
-    #   search_query = self.request.query_params.get('search', None)
+    # def get_permissions(self):
+    #     if self.request.method == 'POST':
+    #         return [permissions.IsAuthenticated()]
+    #     elif self.request.method == 'GET':
+    #         return [permissions.AllowAny()]
+    #     elif self.request.method == 'PUT':
+    #         return [permissions.IsAuthenticated()]
+    #     return super().get_permissions()
 
-    #   if search_query:
-    #       queryset = queryset.filter(name__icontains=search_query)
-
-    #    return queryset
+    # def create(self, serializers):
+    #     serializers.save(owner=self.request.user)
 
 class ItemRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
@@ -34,6 +37,20 @@ class ElectronicsItemListView(generics.ListAPIView):
         electronics_category = Category.objects.get(name='Electronics')
         return Item.objects.filter(category=electronics_category)
 
+class CredentialsItemListView(generics.ListAPIView):
+    serializer_class = ItemSerializer
+
+    def get_queryset(self):
+        credential_category = Category.objects.get(name='Credentials')
+        return Item.objects.filter(category=credential_category)
+
+class PetsItemListView(generics.ListAPIView):
+    serializer_class = ItemSerializer
+
+    def get_queryset(self):
+        pet_category = Category.objects.get(name='Pets')
+        return Item.objects.filter(category=pet_category)
+
 class ClothingItemListView(generics.ListAPIView):
     serializer_class = ItemSerializer
 
@@ -41,50 +58,10 @@ class ClothingItemListView(generics.ListAPIView):
         clothing_category = Category.objects.get(name='Clothing')
         return Item.objects.filter(category=clothing_category)
 
-# class ElectronicListCreateView(generics.ListCreateAPIView):
-#     queryset = Electronic.objects.all()
-#     serializer_class = ElectronicSerializer
+class StationaryItemListView(generics.ListAPIView):
+    serializer_class= ItemSerializer
 
-# class ElectronicRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Electronic.objects.all()
-#     serializer_class = ElectronicSerializer
+    def get_queryset(self):
+        stationary_category = Category.objects.get(name='Stationary')
+        return Item.objects.filter(category=stationary_category)
 
-# class CredentialListCreateView(generics.ListCreateAPIView):
-#     queryset = Credential.objects.all()
-#     serializer_class = CredentialSerializer
-
-# class CredentialRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Credential.objects.all()
-#     serializer_class = CredentialSerializer
-
-# class ClothingListCreateView(generics.ListCreateAPIView):
-#     queryset = Clothing.objects.all()
-#     serializer_class = ClothingSerializer
-
-# class ClothingRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Clothing.objects.all()
-#     serializer_class = ClothingSerializer
-
-# class StationaryListCreateView(generics.ListCreateAPIView):
-#     queryset = Stationary.objects.all()
-#     serializer_class = StationarySerializer
-
-# class StationaryRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Stationary.objects.all()
-#     serializer_class = StationarySerializer
-
-# class FurnitureListCreateView(generics.ListCreateAPIView):
-#     queryset = Furniture.objects.all()
-#     serializer_class = FurnitureSerializer
-
-# class FurnitureRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Furniture.objects.all()
-#     serializer_class = FurnitureSerializer
-
-# class PetListCreateView(generics.ListCreateAPIView):
-#     queryset = Pet.objects.all()
-#     serializer_class = PetSerializer
-
-# class PetRetrieveUpdateDestoryView(generics.RetrieveUpdateDestroyAPIView):
-#     queryset = Pet.objects.all()
-#     serializer_class = PetSerializer
