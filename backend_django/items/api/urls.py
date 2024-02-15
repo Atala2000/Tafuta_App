@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import (
 	ItemListCreateView, ItemRetrieveUpdateDestroyView, CategoryListCreateView, CategoryRetrieveUpdateDestroyView,
-	ElectronicsItemListView, ClothingItemListView
+	ElectronicsItemListView, ClothingItemListView, StationaryItemListView, CredentialsItemListView, PetsItemListView
 )
 
 urlpatterns = [
@@ -10,7 +10,10 @@ urlpatterns = [
 	path('category/', CategoryListCreateView.as_view(), name='category-list-create'),
 	path('category/<int:pk>/', CategoryRetrieveUpdateDestroyView.as_view(), name='category-retrieve-update-destroy'),
 	path('electronics/items/', ElectronicsItemListView.as_view(), name='electronics-item-list'),
-	path('clothing/items/', ClothingItemListView.as_view(), name='clothing-item-list')
+	path('pets/items/', PetsItemListView.as_view(), name='pets-item-list'),
+	path('credentials/items/', CredentialsItemListView.as_view(), name='credentials-item-list'),
+	path('clothing/items/', ClothingItemListView.as_view(), name='clothing-item-list'),
+	path('stationary/items/', StationaryItemListView.as_view(), name='stationary-item-list')
 # 	path('electronics/', ElectronicListCreateView.as_view(), name='electronics-list-create'),
 # 	path('electronics/<int:pk>/', ElectronicRetrieveUpdateDestroyView.as_view(), name='electronics-retrieve-update-destroy'),
 # 	path('credentials/', CredentialListCreateView.as_view(), name='credential-list-create'),
