@@ -36,7 +36,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-function index_page() {
+index_page = () => {
     $.ajax({
         method: "GET",
         url: url + "items/",
@@ -49,7 +49,7 @@ function index_page() {
     })
 }
 
-function item_listing() {
+item_listing = () => {
     $.ajax({
         method: "GET",
         url: url + "items",
@@ -72,7 +72,7 @@ function item_listing() {
     })
 }
 
-function item_details() {
+item_details= () => {
     $.ajax({
         url: url + "items/" + url_id,
         method: "GET",
@@ -91,7 +91,7 @@ function item_details() {
     })
 }
 
-function login() {
+login = () => {
     $.ajax({
         url: url + "login/",
         method: "POST",
