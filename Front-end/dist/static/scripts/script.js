@@ -28,6 +28,9 @@ document.addEventListener("DOMContentLoaded", () => {
         case "/login.html":
             login();
             break;
+        case "/report.html":
+            report_form();
+            break
         default:
             console.log("No page found")
             break;
@@ -108,4 +111,43 @@ login = () => {
     })
 }
 
+function report_form() {
+    // Select the form element
+    const reportForm = document.querySelector('#report-form');
+
+    // Add event listener for form submission
+    reportForm.addEventListener('submit', (event) => {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+        // Create FormData object
+        const formData = new FormData(reportForm);
+        // for (item of formData) {
+        //     console.log(item[0], item[1]);
+        // }
+        // Convert file input value to Blob object
+        const fileInput = reportForm.querySelector('input[type="file"]');
+        const file = fileInput.files[0];
+        formData.set('image', file);
+
+        // Send AJAX request to the server
+        $.ajax({
+            url: url + "items/",
+            method: "POST",
+            data: formData,
+            processData: false, // Prevent jQuery from processing data
+            contentType: false, // Prevent jQuery from setting contentType
+            success: (response) => {
+                console.log("Success:", response);
+                alert("Form submitted successfully")
+                window.lo
+                // Optionally, display a success message or redirect to another page
+            },
+            error: (error) => {
+                console.error("Error:", error);
+                alert("Form could not be submitted")
+                // Optionally, display an error message to the user
+            },
+        });
+    });
+}
 

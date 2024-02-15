@@ -48,28 +48,28 @@
                 <h2 class="text-center">Report a Lost Item</h2>
                 <p class="text-center">Please fill in the form below to report a lost item</p>
                 <hr>
-                <form action="http://localhost:5001/form" method="post" class="form">
+                <form action="" method="post" class="form" id="report-form">
                     <fieldset>
                         <legend class="text-primary fs-2">Owner Details</legend>
                     <div class="mb-3">
-                        <label for="item-owner" class="form-label">Owner's Name</label>
-                        <input type="text" class="form-control" id="item-owner" name="item-owner" placeholder="John Doe" required>
+                        <label for="owner_name" class="form-label">Owner's Name</label>
+                        <input type="text" class="form-control" id="owner_name" name="owner_name" placeholder="John Doe" required>
                     </div>
                     <div class="mb-3">
-                        <label for="item-contact" class="form-label">Owner's Contact</label>
-                        <input type="text" class="form-control" id="item-contact" name="item-contact"  required>
+                        <label for="contact" class="form-label">Owner's Contact</label>
+                        <input type="text" class="form-control" id="contact" name="contact"  required>
                     </div>
                     <div class="mb-3">
-                        <label for="item-contact" class="form-label">Owner's Email</label>
-                        <input type="text" class="form-control" id="item-email" name="item-contact"  required>
+                        <label for="contact" class="form-label">Owner's Email</label>
+                        <input type="text" class="form-control" id="email" name="email"  required>
                     </div>
                     </fieldset>
                     <fieldset>
                         <legend class="text-primary fs-2">Item Details</legend>
                         <hr>
                         <div class="mb-3">
-                            <label for="item-category" class="form-label">Item Category</label>
-                            <select class="form-select" id="item-category" name="item-category" required>
+                            <label for="category" class="form-label">Item Category</label>
+                            <select class="form-select" id="category" name="category" required>
                                 <option value="Electronics">Electronics</option>
                                 <option value="Credentials">Credentials</option>
                                 <option value="Clothing">Clothing</option>
@@ -79,28 +79,28 @@
                             </select>
                         </div>
                     <div class="mb-3">
-                        <label for="item-name" class="form-label">Item Name</label>
-                        <input type="text" class="form-control" id="item-name" name="item-name" required>
+                        <label for="name" class="form-label">Item Name</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
                     </div>
                     <div class="mb-3">
-                        <label for="item-description" class="form-label">Item Description</label>
-                        <textarea class="form-control" id="item-description" name="item-description" required></textarea>
+                        <label for="description" class="form-label">Item Description</label>
+                        <textarea class="form-control" id="description" name="description" required></textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="item-location" class="form-label">Location Found</label>
-                        <input type="text" class="form-control" id="item-location" name="item-location" required>
+                        <label for="location" class="form-label">Location Found</label>
+                        <input type="text" class="form-control" id="location_found" name="location_found" required>
                     </div>
                     <div class="mb-3">
-                        <label for="item-date" class="form-label">Date Found</label>
-                        <input type="date" class="form-control" id="item-date" name="item-date" required>
+                        <label for="date_found" class="form-label">Date Found</label>
+                        <input type="date" class="form-control" id="date_found" name="date_found" required>
                     </div>
                     <div class="mb-3">
-                        <label for="item-image" class="form-label">Upload Image</label>
-                        <input type="file" class="form-control" id="item-image" name="item-image" required>
+                        <label for="image" class="form-label">Upload Image</label>
+                        <input type="file" class="form-control" id="image" name="image" required>
                     </div>
                 </fieldset>
                     <div class="mb-3">
-                        <button type="submit" class="btn btn-primary">Report</button>
+                        <button type="submit" class="btn btn-primary" id="submit">Report</button>
                     </div>
                 </form>
             </section>
