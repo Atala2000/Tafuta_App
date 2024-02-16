@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-index_page = (endpoint) => {
+function index_page (endpoint) {
     $.ajax({
         method: "GET",
         url: url + endpoint,
@@ -54,7 +54,7 @@ index_page = (endpoint) => {
     })
 }
 
-item_listing = (endpoint) => {
+function item_listing (endpoint) {
     $.ajax({
         method: "GET",
         url: url + endpoint,
@@ -77,7 +77,7 @@ item_listing = (endpoint) => {
     })
 }
 
-item_details= (endpoint) => {
+function item_details (endpoint) {
     $.ajax({
         url: url + endpoint + url_id,
         method: "GET",
@@ -152,3 +152,25 @@ function report_form() {
     });
 }
 
+function filter() {
+    // Get all the dropdown items
+    const dropdownItems = document.querySelectorAll(".dropdown-item");
+
+    // Add click event listener to each dropdown item
+    dropdownItems.forEach(item => {
+        item.addEventListener("click", function() {
+            // Get the text content of the clicked item
+            const selectedItem = this.textContent;
+            item_listing(selectedItem.toLowerCase() + "/")
+            // Log or use the selected item value as needed
+            console.log("Selected item:", selectedItem);
+
+            // If you want to do something with the selected item value, you can call a function here or perform any other action
+        });
+    });
+}
+
+// Call the filter function when the DOM content is loaded
+document.addEventListener("DOMContentLoaded", () => {
+    filter();
+});
