@@ -152,6 +152,7 @@ function report_form() {
     });
 }
 
+<<<<<<< HEAD
 function filter() {
     // Get all the dropdown items
     const dropdownItems = document.querySelectorAll(".dropdown-item");
@@ -174,3 +175,23 @@ function filter() {
 document.addEventListener("DOMContentLoaded", () => {
     filter();
 });
+=======
+// function filter() {
+//     // Get all the dropdown items
+//     const dropdownItems = document.querySelectorAll(".dropdown-item");
+
+//     // Add click event listener to each dropdown item
+//     dropdownItems.forEach(item => {
+//         item.addEventListener("click", function() {
+//             // Get the text content of the clicked item
+//             const selectedItem = this.textContent;
+//             item_listing(selectedItem.toLowerCase() + "/")
+//             // Log or use the selected item value as needed
+//             console.log("Selected item:", selectedItem);
+
+//             // If you want to do something with the selected item value, you can call a function here or perform any other action
+//         });
+//     });
+// }
+
+>>>>>>> 1e67d24 (revert changes)
