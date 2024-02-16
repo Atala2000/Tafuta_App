@@ -1,6 +1,8 @@
 const url = "http://127.0.0.1:8000/"
 let url_id = new URL(window.location.href).searchParams.get("value");
-let urlPath = window.location.pathname; // Different function executed based on the page
+let urlpathname = window.location.pathname;
+const lastSlashIndex = urlpathname.lastIndexOf('/')
+const urlPath = urlpathname.substring(lastSlashIndex + 1) // Different function executed based on the page
 let credentials;
 /*
 Gets ID from key-value pair that will be used to dynamically set data for the item list detail page
@@ -16,19 +18,19 @@ const items_column = document.getElementById("item-column");
 
 document.addEventListener("DOMContentLoaded", () => {
     switch (urlPath) {
-        case "/index.html":
-            index_page();
+        case "index.html":
+            index_page("items/");
             break;
-        case "/items-list.html":
-            item_listing();
+        case "items-list.html":
+            item_listing("items/");
             break;
-        case "/item-list-detail.html":
-            item_details();
+        case "item-list-detail.html":
+            item_details("items/");
             break;
-        case "/login.html":
+        case "login.html":
             login();
             break;
-        case "/report.html":
+        case "report.html":
             report_form();
             break
         default:
@@ -39,10 +41,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-index_page = () => {
+index_page = (endpoint) => {
     $.ajax({
         method: "GET",
-        url: url + "items/",
+        url: url + endpoint,
         success: (data) => {
             console.log("Sucess")
             items_lost_number.innerText = data.length;
@@ -52,10 +54,10 @@ index_page = () => {
     })
 }
 
-item_listing = () => {
+item_listing = (endpoint) => {
     $.ajax({
         method: "GET",
-        url: url + "items",
+        url: url + endpoint,
         success: (data) => {
             console.log("Sucess")
             data.forEach((item) => {
@@ -75,9 +77,9 @@ item_listing = () => {
     })
 }
 
-item_details= () => {
+item_details= (endpoint) => {
     $.ajax({
-        url: url + "items/" + url_id,
+        url: url + endpoint + url_id,
         method: "GET",
         success: ((data) => {
             document.getElementById("item_name").innerText = data.name;
@@ -139,7 +141,6 @@ function report_form() {
             success: (response) => {
                 console.log("Success:", response);
                 alert("Form submitted successfully")
-                window.lo
                 // Optionally, display a success message or redirect to another page
             },
             error: (error) => {
