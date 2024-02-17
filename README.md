@@ -50,49 +50,49 @@ Throttling, pagination, and filtering options in DRF enhance API performance and
 - [`logout/` [name='user-logout']](#)
 - [`credentials/items/` [name='credentials-item-list']](#)
 
-## API Endpoints Documentation
-# Items
+# API Endpoints Documentation
+## Items
 GET/POST /items/ [name='item-list-create']
 Description: This endpoint allows you to retrieve a list of items or create a new item.
 GET/PUT/DELETE /items/<int:pk>/ [name='item-retrieve-update-destroy']
 Description: Retrieve, update, or delete a specific item identified by its unique identifier (<int:pk>).
 
-# Categories
+## Categories
 GET/POST /category/ [name='category-list-create']
 Description: Retrieve a list of categories or create a new category.
 
 GET/PUT/DELETE /category/<int:pk>/ [name='category-retrieve-update-destroy']
 Description: Retrieve, update, or delete a specific category identified by its unique identifier (<int:pk>).
 
-# Electronics Items
+## Electronics Items
 GET /electronics/items/ [name='electronics-item-list']
 Description: Retrieve a list of items specifically related to electronics.
 
-# Pets Items
+## Pets Items
 GET /pets/items/ [name='pets-item-list']
 Description: Retrieve a list of items specifically related to pets.
 
-# Credentials Items
+## Credentials Items
 GET /credentials/items/ [name='credentials-item-list']
 Description: Retrieve a list of credential items.
 
-# Clothing Items
+## Clothing Items
 GET /clothing/items/ [name='clothing-item-list']
 Description: Retrieve a list of items specifically related to clothing.
 
-# Stationary Items
+## Stationary Items
 GET /stationary/items/ [name='stationary-item-list']
 Description: Retrieve a list of items specifically related to stationary.
 
-# User Registration
+## User Registration
 POST /sign up/ [name='user-registration']
 Description: Register a new user by providing necessary registration information.
 
-# User Login
+## User Login
 POST /login/ [name='user-login']
 Description: Log in a user by providing valid login credentials.
 
-# User Logout
+## User Logout
 POST /logout/ [name='user-logout']
 Description: Log out the currently authenticated user.
 
