@@ -53,9 +53,9 @@ Throttling, pagination, and filtering options in DRF enhance API performance and
 
 # API Endpoints Documentation:
 ## Items
-- GET/POST /items/ [name='item-list-create']
+- **GET/POST** /items/ [name='item-list-create']
 - Description: This endpoint allows you to retrieve a list of items or create a new item.
-- GET/PUT/DELETE /items/<int:pk>/ [name='item-retrieve-update-destroy']
+- **GET/PUT/DELETE** /items/<int:pk>/ [name='item-retrieve-update-destroy']
 - Description: Retrieve, update, or delete a specific item identified by its unique identifier (<int:pk>).
 
 ## Categories
