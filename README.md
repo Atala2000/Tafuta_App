@@ -59,43 +59,43 @@ Throttling, pagination, and filtering options in DRF enhance API performance and
 - Description: Retrieve, update, or delete a specific item identified by its unique identifier (<int:pk>).
 
 ## Categories
-GET/POST /category/ [name='category-list-create']
-Description: Retrieve a list of categories or create a new category.
+- **GET/POST** /category/ [name='category-list-create']
+- Description: Retrieve a list of categories or create a new category.
 
-GET/PUT/DELETE /category/<int:pk>/ [name='category-retrieve-update-destroy']
-Description: Retrieve, update, or delete a specific category identified by its unique identifier (<int:pk>).
+- **GET/PUT/DELETE** /category/<int:pk>/ [name='category-retrieve-update-destroy']
+- Description: Retrieve, update, or delete a specific category identified by its unique identifier (<int:pk>).
 
 ## Electronics Items
-GET /electronics/items/ [name='electronics-item-list']
-Description: Retrieve a list of items specifically related to electronics.
+- **GET** /electronics/items/ [name='electronics-item-list']
+- Description: Retrieve a list of items specifically related to electronics.
 
 ## Pets Items
-GET /pets/items/ [name='pets-item-list']
-Description: Retrieve a list of items specifically related to pets.
+- **GET** /pets/items/ [name='pets-item-list']
+- Description: Retrieve a list of items specifically related to pets.
 
 ## Credentials Items
-GET /credentials/items/ [name='credentials-item-list']
-Description: Retrieve a list of credential items.
+- **GET** /credentials/items/ [name='credentials-item-list']
+- Description: Retrieve a list of credential items.
 
 ## Clothing Items
-GET /clothing/items/ [name='clothing-item-list']
-Description: Retrieve a list of items specifically related to clothing.
+- **GET** /clothing/items/ [name='clothing-item-list']
+- Description: Retrieve a list of items specifically related to clothing.
 
 ## Stationary Items
-GET /stationary/items/ [name='stationary-item-list']
-Description: Retrieve a list of items specifically related to stationary.
+- **GET** /stationary/items/ [name='stationary-item-list']
+- Description: Retrieve a list of items specifically related to stationary.
 
 ## User Registration
-POST /sign up/ [name='user-registration']
-Description: Register a new user by providing necessary registration information.
+- **POST** /sign up/ [name='user-registration']
+- Description: Register a new user by providing necessary registration information.
 
 ## User Login
-POST /login/ [name='user-login']
-Description: Log in a user by providing valid login credentials.
+- **POST** /login/ [name='user-login']
+- Description: Log in a user by providing valid login credentials.
 
 ## User Logout
-POST /logout/ [name='user-logout']
-Description: Log out the currently authenticated user.
+- **POST** /logout/ [name='user-logout']
+- Description: Log out the currently authenticated user.
 
 
 **jQuery using Ajax**
