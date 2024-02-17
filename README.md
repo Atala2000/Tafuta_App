@@ -50,7 +50,8 @@ Throttling, pagination, and filtering options in DRF enhance API performance and
 - [`logout/` [name='user-logout']](#)
 - [`credentials/items/` [name='credentials-item-list']](#)
 
-# API Endpoints Documentation
+
+# API Endpoints Documentation:
 ## Items
 GET/POST /items/ [name='item-list-create']
 Description: This endpoint allows you to retrieve a list of items or create a new item.
