@@ -7,13 +7,16 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="./static/styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cherry+Swash&family=Kanit:wght@300&family=Lobster+Two&family=Pacifico&display=swap" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark">
         <div class="container-xxl">
             <a href="#" class="navbar-brand">
-                <img src="./static/images/TAFUTA.png" alt="Tafuta" class="img-rounded" id="nav-img" style="height: 50px; width: 50px;">
+                <img src="./static/images/TAFUTA.png" alt="Tafuta" class="img-rounded" id="nav-img">
             </a>
             <span class="navbar-text d-none d-md-block text-center">
             <h2 class="text-light text-center">Tafuta</h2>
@@ -27,7 +30,7 @@
         <div class="collapse navbar-collapse" id="main-nav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Home</a>
+                    <a href="./index.html" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item">
                     <a href="./about.html" class="nav-link">About</a>
@@ -36,15 +39,30 @@
                     <a href="./report.html" class="nav-link">Report</a>
                 </li>
                 <li class="nav-item">
-                    <a href="./items-list.html" class="nav-link" id="items">Items</a>
+                    <a href="./items-list.html" class="nav-link">Items</a>
                 </li>
             </ul>
         </div>
         </div>
     </nav>
     <main>
-        <h1 class="fs-1 text-uppercase text-primary text-center m-3">Tafuta</h1>
-        <section class="who-we-are border-bottom-1">
+        <!-- <h1 class="fs-1 text-uppercase text-primary text-center m-3">Tafuta</h1> -->
+        <div class="container m-3 p-3 bg-muted text-dark">
+            <div class="welcome">
+                <h1 class="display-4 card p-4 bg-dark text-white text-center">Welcome to Tafuta</h1>
+                
+            </div>
+
+    
+                <p class="lead">Tafuta is a platform that allows you to find items that you have lost or report items that you have found.</p>
+                <p class="lead">You can also view items that have been reported as lost or found.</p>
+                <div class="report-list">
+                    <a href="./report.html" class="btn btn-dark custom">Report</a>
+                    <a href="./items-list.html" class="btn btn-dark custom">List</a>
+                </div>
+            </div>
+
+        <section class="who-we-are border-bottom-1 mt-2">
             <div class="container mt-4 ">
                 <div class="row">
                     <div class="col-md-8">
@@ -61,20 +79,20 @@
         <section class="our-process m-4 bg-dark card">
             <div class="container p-3">
                 <h2 class="text-center text-light">Our Process</h2>
-                <div class="d-flex flex-column flex-md-row gap-5">
+                <div class="d-flex flex-column flex-md-row gap-5" style="font-family: sans-serif;">
                     <article class="bg-light card p-3">
                         <p class="text">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, amet vel nobis ullam, iure eum ab fugiat quibusdam quod placeat commodi soluta dignissimos repellendus! Soluta sequi fugit at quasi, necessitatibus esse reiciendis vel? Totam voluptates excepturi hic unde cupiditate itaque, perferendis dicta impedit praesentium quos assumenda veritatis, dolorum aperiam quia!
+                            Click on the report button to report an item that you have lost or found.
                         </p>
                     </article>
                     <article class="bg-light card p-3">
                         <p class="text-dark">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, amet vel nobis ullam, iure eum ab fugiat quibusdam quod placeat commodi soluta dignissimos repellendus! Soluta sequi fugit at quasi, necessitatibus esse reiciendis vel? Totam voluptates excepturi hic unde cupiditate itaque, perferendis dicta impedit praesentium quos assumenda veritatis, dolorum aperiam quia!
+                            Fill in the details of the item that you have lost or found.
                         </p>
                     </article>
                     <article class="bg-light card p-3">
                         <p class="text-dark">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, amet vel nobis ullam, iure eum ab fugiat quibusdam quod placeat commodi soluta dignissimos repellendus! Soluta sequi fugit at quasi, necessitatibus esse reiciendis vel? Totam voluptates excepturi hic unde cupiditate itaque, perferendis dicta impedit praesentium quos assumenda veritatis, dolorum aperiam quia!
+                            Click on the list button to view items that have been reported as lost or found.
                         </p>
                     </article>
                 </div>
@@ -133,10 +151,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="card p-3">
-                            <h3 class="text-center">Contact Information</h3>
-                            <p class="text-center">Email: </p>
-                            <p class="text-center">Phone: </p>
-                            <p class="text-center">Address: </p>
+                            <h3 class="text-center">Contact Us</h3>
+                            <p class="text-start text-primary fs-3"> Email: <span class="text-dark fs-5"> tafuta@app.gmail.com</span></p>
+                            <p class="text-start text-primary fs-3">Phone: <span class="text-dark fs-5"> 071234567</span></p>
+                            <p class="text-start text-primary fs-3">Address: <span class="text-dark fs-5"> 0400-Nairobi</span></p>
                         </div>
                     </div>
                     </div>

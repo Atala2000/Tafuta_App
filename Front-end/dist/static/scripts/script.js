@@ -14,7 +14,7 @@ const items_found_number = document.getElementById("items-reported-found");
 const items_lost_number = document.getElementById("items-reported-lost");
 const items_connected = document.getElementById("items-connected-index");
 // Selectors for the item listing page
-const items_column = document.getElementById("item-column");
+const item_list = document.getElementById("items");
 
 document.addEventListener("DOMContentLoaded", () => {
     switch (urlPath) {
@@ -60,15 +60,17 @@ function item_listing (endpoint) {
         url: url + endpoint,
         success: (data) => {
             console.log("Sucess")
+            console.log(data)
             data.forEach((item) => {
-                items_column.innerHTML += `
-                <div class="card col-md-4 m-2" style="width: 18rem;">
-                    <img class="card-img-top img-fluid mt-2" style="height: 200px; width: 200px;" src="${item.image}" alt="Card image cap">
+                item_list.innerHTML += `
+                <div class="item-card card">
+                    <img src="${item.image}">
+                    <h3 class="card-header">Item name: <span class="text-primary">${item.name}</span></h3>
                     <div class="card-body">
-                        <h5 class="card-title">${item.name}</h5>
-                        <p class="card-text">${item.description}</p>
-                        <a href="./item-list-detail.html?value=${item.id}" class="btn btn-primary">View</a>
+                    <p>Date found: ${item.date_found}</p>
+                    <p>Location: ${item.location_found}</p>
                     </div>
+                    <a href="./item-list-detail.html?value=${item.id}" class="btn btn-primary">View</a>
                 </div>
                 `
             })
