@@ -63,15 +63,18 @@ function item_listing (endpoint) {
             console.log(data)
             data.forEach((item) => {
                 item_list.innerHTML += `
-                <div class="item-card card">
-                    <img src="${item.image}">
-                    <h3 class="card-header">Item name: <span class="text-primary">${item.name}</span></h3>
+                <div class="card col-3">
+                <div class="img-thumbnail mt-2" style="height: 200px; overflow: hidden;">
+                    <img src="${item.image}" class="img-responsive">
+                </div>
                     <div class="card-body">
+                    <h5 class="card-header"><span class="text-primary">${item.name}</span></h5>
                     <p>Date found: ${item.date_found}</p>
                     <p>Location: ${item.location_found}</p>
                     </div>
-                    <a href="./item-list-detail.html?value=${item.id}" class="btn btn-primary">View</a>
-                </div>
+                    <a href="./item-list-detail.html?value=${item.id}" class="btn btn-primary mb-3">View</a>
+            </div>
+            
                 `
             })
         },
