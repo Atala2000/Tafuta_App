@@ -63,7 +63,7 @@ function item_listing (endpoint) {
             console.log(data)
             data.forEach((item) => {
                 item_list.innerHTML += `
-                <div class="card col-3">
+                <div class="card col-xs-2 col-md-3">
                 <div class="img-thumbnail mt-2" style="height: 200px; overflow: hidden;">
                     <img src="${item.image}" class="img-responsive">
                 </div>
