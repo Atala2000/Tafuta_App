@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 h1, h2, h3 {
   font-family: "Kanit", sans-serif;
 }
@@ -15,6 +19,11 @@ nav {
   width: 50%;
   display: flex;
   justify-content: space-between;
+}
+
+.intro {
+  animation-name: fade-in;
+  animation-duration: 1.5s;
 }
 
 .custom {
@@ -79,5 +88,23 @@ img {
     gap: 20px;
     font-size: 10px;
     padding: 20px;
+  }
+}
+.our-process {
+  animation-name: fade-in;
+  animation-duration: 2.5s;
+}
+
+.our-numbers {
+  animation-name: fade-in;
+  animation-duration: 4s;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
   }
 }/*# sourceMappingURL=main.css.map */

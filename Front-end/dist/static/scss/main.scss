@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 h1, h2, h3 {
     font-family: "Kanit", sans-serif;
 }
@@ -21,11 +25,10 @@ nav {
 }
 
 
-// .intro {
-//     display: flex;
-//     justify-content: space-between;
-//     gap: 50px;
-// }
+.intro {
+    animation-name: fade-in;
+    animation-duration: 1.5s;
+}
 
 // .intro-text {
 //     padding: 10px;
@@ -126,5 +129,24 @@ img {
         gap: 20px;
         font-size: 10px;
         padding: 20px;
+    }
+}
+
+.our-process {
+    animation-name: fade-in;
+    animation-duration: 2.5s;
+}
+
+.our-numbers {
+    animation-name: fade-in;
+    animation-duration: 4s;
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
