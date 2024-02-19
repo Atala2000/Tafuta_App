@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
             index_page("items/");
             break;
         case "items-list.html":
-            item_listing("items/");
+            item_listing();
             break;
         case "item-list-detail.html":
             item_details("items/");
@@ -54,33 +54,49 @@ function index_page (endpoint) {
     })
 }
 
-function item_listing (endpoint) {
-    $.ajax({
-        method: "GET",
-        url: url + endpoint,
-        success: (data) => {
-            console.log("Sucess")
-            console.log(data)
-            data.forEach((item) => {
-                item_list.innerHTML += `
-                <div class="card col-xs-2 col-md-3">
-                <div class="img-thumbnail mt-2" style="height: 200px; overflow: hidden;">
-                    <img src="${item.image}" class="img-responsive">
-                </div>
-                    <div class="card-body">
-                    <h5 class="card-header"><span class="text-primary">${item.name}</span></h5>
-                    <p>Date found: ${item.date_found}</p>
-                    <p>Location: ${item.location_found}</p>
-                    </div>
-                    <a href="./item-list-detail.html?value=${item.id}" class="btn btn-primary mb-3">View</a>
-            </div>
-            
-                `
-            })
-        },
+function item_listing() {
+    function fetchData(url) {
+        $.ajax({
+            method: "GET",
+            url: url,
+            success: (data) => {
+                console.log(url);
+                console.log(data);
+                item_list.innerHTML = ''; // Clear the previous items
+                data.forEach((item) => {
+                    item_list.innerHTML += `
+                        <div class="card col-xs-2 col-md-3">
+                            <div class="img-thumbnail mt-2" style="height: 200px; overflow: hidden;">
+                                <img src="${item.image}" class="img-responsive">
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-header"><span class="text-primary">${item.name}</span></h5>
+                                <p>Date found: ${item.date_found}</p>
+                                <p>Location: ${item.location_found}</p>
+                            </div>
+                            <a href="./item-list-detail.html?value=${item.id}" class="btn btn-primary mb-3">View</a>
+                        </div>
+                    `;
+                });
+            },
+        });
+    }
 
-    })
+    let input = document.getElementById('filter');
+    if (input.value === 'items') {
+        fetchData(url + '/items/');
+    }
+    input.addEventListener('change', () => {
+        const value = input.value;
+        if (value === 'items') {
+            fetchData(url + '/items/');
+            return;
+        }
+        const filterUrl = url + value + '/items';
+        fetchData(filterUrl);
+    });
 }
+
 
 function item_details (endpoint) {
     $.ajax({
@@ -157,25 +173,4 @@ function report_form() {
     });
 }
 
-function filter() {
-    // Get all the dropdown items
-    const dropdownItems = document.querySelectorAll(".dropdown-item");
 
-    // Add click event listener to each dropdown item
-    dropdownItems.forEach(item => {
-        item.addEventListener("click", function() {
-            // Get the text content of the clicked item
-            const selectedItem = this.textContent;
-            item_listing(selectedItem.toLowerCase() + "/")
-            // Log or use the selected item value as needed
-            console.log("Selected item:", selectedItem);
-
-            // If you want to do something with the selected item value, you can call a function here or perform any other action
-        });
-    });
-}
-
-// Call the filter function when the DOM content is loaded
-document.addEventListener("DOMContentLoaded", () => {
-    filter();
-});
