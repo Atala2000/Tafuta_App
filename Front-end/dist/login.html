@@ -80,6 +80,7 @@
             },
             success: ((data) => {
                 alert("success")
+                sessionStorage.setItem('token', data.jwt);
                 window.location.assign("/items-list.html");
             }),
             error: ((error) => {

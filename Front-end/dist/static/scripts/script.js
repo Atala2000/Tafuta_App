@@ -3,7 +3,7 @@ let url_id = new URL(window.location.href).searchParams.get("value");
 let urlpathname = window.location.pathname;
 const lastSlashIndex = urlpathname.lastIndexOf('/')
 const urlPath = urlpathname.substring(lastSlashIndex + 1) // Different function executed based on the page
-let credentials;
+sessionStorage.setItem('username', 'Kiddie');
 /*
 Gets ID from key-value pair that will be used to dynamically set data for the item list detail page
 */
@@ -20,6 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
     switch (urlPath) {
         case "index.html":
             index_page("items/");
+            console.log(sessionStorage.getItem('token'));
             break;
         case "items-list.html":
             item_listing();
@@ -136,6 +137,7 @@ login = () => {
 
 function report_form() {
     // Select the form element
+    console.log(sessionStorage.getItem('token'));
     const reportForm = document.querySelector('#report-form');
 
     // Add event listener for form submission
@@ -156,6 +158,9 @@ function report_form() {
         $.ajax({
             url: url + "items/",
             method: "POST",
+            headers: {
+                "Authorization": `Bearer ${sessionStorage.getItem('token')}`
+            },
             data: formData,
             processData: false, // Prevent jQuery from processing data
             contentType: false, // Prevent jQuery from setting contentType
