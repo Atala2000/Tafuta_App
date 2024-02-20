@@ -48,6 +48,7 @@ Throttling, pagination, and filtering options in DRF enhance API performance and
 - [`sign up/` [name='user-registration']](#)
 - [`login/` [name='user-login']](#)
 - [`logout/` [name='user-logout']](#)
+- [`user/`](#)
 
 
 
