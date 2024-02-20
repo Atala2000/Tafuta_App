@@ -35,6 +35,8 @@ class UserLoginView(generics.CreateAPIView):
 
         payload = {
             'id': user.id,
+            'email': email,
+            'password': password,
             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
             'iat': datetime.datetime.utcnow()
         }
