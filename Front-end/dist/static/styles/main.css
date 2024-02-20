@@ -6,6 +6,13 @@ h1, h2, h3 {
   font-family: "Kanit", sans-serif;
 }
 
+body {
+  font-family: "Kanit", sans-serif;
+  background-image: linear-gradient(115deg, rgba(255, 255, 255, 0.7), rgb(206, 241, 245));
+  background-repeat: no-repeat;
+  color: #333;
+}
+
 nav {
   font-family: Kanit, sans-serif;
 }
