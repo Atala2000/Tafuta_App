@@ -6,17 +6,17 @@ class ItemListCreateView(generics.ListCreateAPIView):
     queryset = Item.objects.all()
     serializer_class = ItemSerializer
 
-    # def get_permissions(self):
-    #     if self.request.method == 'POST':
-    #         return [permissions.IsAuthenticated()]
-    #     elif self.request.method == 'GET':
-    #         return [permissions.AllowAny()]
-    #     elif self.request.method == 'PUT':
-    #         return [permissions.IsAuthenticated()]
-    #     return super().get_permissions()
+    def get_permissions(self):
+        if self.request.method == 'POST':
+            return [permissions.IsAuthenticated()]
+        elif self.request.method == 'GET':
+            return [permissions.AllowAny()]
+        elif self.request.method == 'PUT':
+            return [permissions.IsAuthenticated()]
+        return super().get_permissions()
 
-    # def create(self, serializers):
-    #     serializers.save(owner=self.request.user)
+    def create(self, serializers):
+        serializers.save(owner=self.request.user)
 
 class ItemRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
