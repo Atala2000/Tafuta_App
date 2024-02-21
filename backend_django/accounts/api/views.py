@@ -20,9 +20,9 @@ class UserLoginView(generics.CreateAPIView):
         password = request.data.get('password')
         #print(f'email:{email}, password: {password}')
 
-        user = authenticate(email=email, password=password)
+        #user = authenticate(email=email, password=password)
         #print(f'Authenticated user: {user}')
-        #user = Account.objects.filter(email=email).first()
+        user = Account.objects.filter(email=email).first()
 
         if user is None:
             raise AuthenticationFailed('User not found')

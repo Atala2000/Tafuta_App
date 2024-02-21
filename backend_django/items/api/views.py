@@ -15,8 +15,9 @@ class ItemListCreateView(generics.ListCreateAPIView):
     #         return [permissions.IsAuthenticated()]
     #     return super().get_permissions()
 
-    def create(self, serializers):
-        serializers.save(owner=self.request.user)
+    def perform_create(self, serializer):
+        if self.request.user.is_authenticated:
+            serializer.save(owner=self.request.user)
 
 class ItemRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Item.objects.all()
