@@ -20,9 +20,9 @@ class UserLoginView(generics.CreateAPIView):
         password = request.data.get('password')
         #print(f'email:{email}, password: {password}')
 
-        #user = authenticate(email=email, password=password)
+        user = authenticate(email=email, password=password)
         #print(f'Authenticated user: {user}')
-        user = Account.objects.filter(email=email).first()
+        #user = Account.objects.filter(email=email).first()
 
         if user is None:
             raise AuthenticationFailed('User not found')
@@ -33,7 +33,7 @@ class UserLoginView(generics.CreateAPIView):
 
         # else:
         #     return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
-
+        #error should be here
         payload = {
             'id': user.id,
             'email': email,
@@ -42,7 +42,7 @@ class UserLoginView(generics.CreateAPIView):
             'iat': datetime.datetime.utcnow()
         }
 
-        token = jwt.encode(payload, 'secret', algorithm='HS256').decode('utf-8')
+        token = jwt.encode(payload, 'secret', algorithm='HS256')
 
         response = Response()
 
