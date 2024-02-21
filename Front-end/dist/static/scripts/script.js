@@ -177,5 +177,22 @@ function report_form() {
         });
     });
 }
+fetch('http://127.0.0.1:8000/items')
+.then(response => response.json())
+.then(data => {
+    // Assuming the API response is an array of items and you want the first one
+    const item = data[0];
 
+    // Update the HTML content with the item data
+    // document.getElementById('itemName').textContent = item.name;
+    // document.getElementById('itemDescription').textContent = item.description;
+    document.getElementById('contact').textContent = item.contact;
+})
+.catch(error => console.error('Error fetching data:', error));
+
+// Function to reveal the contact information
+function revealContact() {
+var contactElement = document.getElementById('contact');
+contactElement.style.display = 'inline';
+}
 
