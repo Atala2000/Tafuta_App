@@ -109,7 +109,10 @@ function item_details (endpoint) {
             document.getElementById("item_image").src = data.image;
             document.getElementById("item_location").innerText = data.location_found;
             document.getElementById("date_found").innerText = data.date_found;
+            const revealbutton = document.getElementById('reveal');
+            revealbutton.addEventListener('click', () => {
             document.getElementById("contact").innerText = data.contact;
+            });
         }),
         error: ((error) => {
             console.log("Error fetching Item details")
@@ -177,22 +180,22 @@ function report_form() {
         });
     });
 }
-fetch('http://127.0.0.1:8000/items')
-.then(response => response.json())
-.then(data => {
-    // Assuming the API response is an array of items and you want the first one
-    const item = data[0];
+// fetch('http://127.0.0.1:8000/items')
+// .then(response => response.json())
+// .then(data => {
+//     // Assuming the API response is an array of items and you want the first one
+//     const item = data[0];
 
-    // Update the HTML content with the item data
-    // document.getElementById('itemName').textContent = item.name;
-    // document.getElementById('itemDescription').textContent = item.description;
-    document.getElementById('contact').textContent = item.contact;
-})
-.catch(error => console.error('Error fetching data:', error));
+//     // Update the HTML content with the item data
+//     // document.getElementById('itemName').textContent = item.name;
+//     // document.getElementById('itemDescription').textContent = item.description;
+//     document.getElementById('contact').textContent = item.contact;
+// })
+// .catch(error => console.error('Error fetching data:', error));
 
-// Function to reveal the contact information
-function revealContact() {
-var contactElement = document.getElementById('contact');
-contactElement.style.display = 'inline';
-}
+// // Function to reveal the contact information
+// function revealContact() {
+// var contactElement = document.getElementById('contact');
+// contactElement.style.display = 'inline';
+// }
 
