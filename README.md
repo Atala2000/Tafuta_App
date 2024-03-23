@@ -135,4 +135,4 @@ Follow these steps to run the Tafuta App locally:
 Tafuta App simplifies the process of reporting and locating lost items, creating a user-centric experience for both reporting and searching for lost belongings.
 
 ## Proposed Changes
-1. [] Change Frontend to React Library 
+- [] Change Frontend to React Library 
